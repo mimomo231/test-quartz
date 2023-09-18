@@ -1,0 +1,51 @@
+spring:
+  profiles:
+    active: dev
+  rabbitmq:
+    config:
+      maxAttempt: 4
+    host: localhost
+    port: 15672
+    username: guest
+    password: guest
+  application:
+    name: test-quartz
+  data:
+    redis:
+      repositories:
+        enabled: false
+  cache:
+    type: redis
+  redis:
+    host: localhost
+    port: 6379
+  lifecycle:
+    timeout-per-shutdown-phase: 15s
+  jpa:
+    open-in-view: false
+    databasePlatform: org.hibernate.dialect.Oracle12cDialect
+    database: oracle
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.Oracle12cDialect
+        use_jdbc_metadata_defaults: false
+        generate_statistics: true
+        jdbc:
+          batch_size: 100
+        order_inserts: true
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: C##HIEU
+    password: 12345678
+    hikari:
+      maximum-pool-size: 5
+      connection-timeout: 120000
+      auto-commit: true
+      max-lifetime: 2000000
+server:
+  port: 8510
+
